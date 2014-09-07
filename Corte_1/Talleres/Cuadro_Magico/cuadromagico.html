@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <script type="text/javascript">
+
+   var limite = 7;
+ 
+   
+   var cuad = new Array();
+  
+   for (var x=0; x<limite; x++){
+    cuad[x] = new Array(limite);
+   }
+
+   cuad = meterCeros(cuad);
+ 
+ 
+   cuad = creaCuadrado(cuad);
+
+   imprimeArrayBi(cuad);
+ 
+  function meterCeros(cuad){
+    for(var x=0; x<cuad.length; x++)
+     for (var y=0; y<cuad.length; y++)
+      cuad[x][y] = 0;
+    return cuad;
+   }
+ 
+
+   function creaCuadrado(cuad){
+    
+    var mitad = parseInt(cuad.length/2);
+  
+    var x=0;
+    var y=mitad;
+   var cont = 1;
+
+    do{
+     cuad[x][y] = cont;
+    
+     if (cuad[siguienteFila(x, cuad)][siguienteColumna(y, cuad)]!=0){
+
+      if(x+1 == cuad.length)x=0;
+     else x++;
+    }
+     else{
+     
+     x = siguienteFila(x, cuad);
+     y = siguienteColumna(y, cuad);
+     }
+    cont++;
+    }while(cuad[x][y]==0);
+    return cuad;
+   }
+ 
+  
+   function siguienteFila(fila, cuad){
+  
+   if((fila-1)<0) fila = cuad.length-1;
+   else fila--; 
+    return fila;
+  }
+ 
+
+   function siguienteColumna(columna, cuad){
+  
+   if((columna+1)>(cuad.length-1)) columna = 0;
+    else columna++; 
+   return columna;
+   }
+ 
+  function imprimeArrayBi(cuad){
+    document.write("<h3 style='color: blue; margin: auto; text-align: center;'>CUADRADO MAGICO</h4><table style='margin: auto;'>");
+   for (var x=0; x<cuad.length; x++){
+    document.write("<tr>");
+     for(var y=0; y<cuad.length; y++){
+      document.write("<td style='padding: 3px;border: 2px solid red; background: -webkit-linear-gradient(yellow, orange);background: -moz-linear-gradient(#acd859, orange);background: -o-linear-gradient(yellow, orange);'>" + cuad[x][y]);
+     }
+     document.write("</tr>");
+   }
+   }
+  </script>
+
+	<meta charset="UTF-8">
+	<title>Cuadro Magico</title>
+</head>
+<body>
+	
+</body>
+</html>
