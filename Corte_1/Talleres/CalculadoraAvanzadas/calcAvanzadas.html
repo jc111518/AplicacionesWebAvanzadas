@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+	form{
+      text-align: center;
+      
+	}
+
+
+</style>	
+<script>
+
+	function boton7 () {document.calc.visor.value += "7";}
+	function boton8 () {document.calc.visor.value += "8";}
+	function boton9 () {document.calc.visor.value += "9";}
+	function boton4 () {document.calc.visor.value += "4";}
+	function boton5 () {document.calc.visor.value += "5";}
+	function boton6 () {document.calc.visor.value += "6";}
+	function boton1 () {document.calc.visor.value += "1";}
+	function boton2 () {document.calc.visor.value += "2";}
+	function boton3 () {document.calc.visor.value += "3";}
+    function boton0 () {document.calc.visor.value += "0";}
+	function reset(){
+       document.calc.visor.value = "";
+
+
+	}
+	function calcule () {
+		var evalo = eval(document.calc.visor.value);
+		document.calc.visor.value = evalo;
+	}
+	function dividir(){document.calc.visor.value += "/";	}
+	function multiplicar(){document.calc.visor.value += "*";	}
+	function resta(){document.calc.visor.value += "-";	}
+	function suma(){document.calc.visor.value += "+";	}
+    function seno(){
+    	var anguloengrados = 35; 
+    	var anguloradianes = anguloengrados*Math.PI/180;
+        var seno = Math.sin(anguloradianes);
+    	document.calc.visor.value += seno;
+}
+function coseno(){
+    	var anguloengrados = 35; 
+    	var anguloradianes = anguloengrados*Math.PI/180;
+        var coseno = Math.cos(anguloradianes);
+    	document.calc.visor.value += coseno;
+}
+function tangente(){
+    	var anguloengrados = 35; 
+    	var anguloradianes = anguloengrados*Math.PI/180;
+        var tangente = Math.tan(anguloradianes);
+    	document.calc.visor.value += tangente;
+}
+function raiz(){
+    	var n = document.calc.visor.value;
+    	document.calc.visor.value = "";
+    	var raiz = Math.sqrt(n);
+    	document.calc.visor.value += raiz;
+
+}
+function log(){
+    	var n = document.calc.visor.value;
+    	document.calc.visor.value = "";
+    	var log = Math.log(n);
+    	document.calc.visor.value += log;
+}
+</script>
+
+	<meta charset="UTF-8">
+	<title>Calculadora Javascript</title>
+</head>
+<body>
+   <h3><center>Calculadora con javascript</center></h3>
+<form name="calc">
+<input type="text" name="visor" /><br />
+<input type="button" value="7" id="siete" onclick="boton7();"/>	
+<input type="button" value="8" id="ocho" onclick="boton8( );"/>	
+<input type="button" value="9" id="nueve" onclick="boton9();"/>
+<input type="button" value="/" onclick="dividir();"/><br />	
+<input type="button" value="4" id="cuatro" onclick="boton4();"/>	
+<input type="button" value="5" id="cinco" onclick="boton5();"/>	
+<input type="button" value="6" id="seis" onclick="boton6();"/>	
+<input type="button" value="*" onclick="multiplicar();"/><br />	
+<input type="button" value="1" id="uno" onclick="boton1();"/>	
+<input type="button" value="2" id="dos" onclick="boton2();"/>	
+<input type="button" value="3" id="tres" onclick="boton3();"/>	
+<input type="button" value="-" onclick="resta();"/><br />	
+<input type="button" value="0" id="cero" onclick="boton0();"/>
+<input type="button" value="=" onclick="calcule();"/>
+<input type="button" value="C" onclick="reset();"/>
+<input type="button" value="+" onclick="suma();"/><br />
+<input type="button" value="seno" onclick="seno();" />
+<input type="button" value="coseno" onclick="coseno();" />
+<input type="button" value="tangente" onclick="tangente();" /><br />
+<input type="button" value="raiz" onclick="raiz();" />
+<input type="button" value="log" onclick="log();" />
+</form>	
+</body>
+</html>
